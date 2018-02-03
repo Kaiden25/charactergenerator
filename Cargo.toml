@@ -1,0 +1,8 @@
+[package]
+name = "char_generator_own_system"
+version = "0.1.0"
+authors = ["LEGACY\\Drake <kaiden3991@gmail.com>"]
+
+[dependencies]
+rand = "0.4.2"
+cross = "0.1.14"
