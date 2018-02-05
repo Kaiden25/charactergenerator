@@ -5,6 +5,29 @@ use rand::Rng;
 //use std::fs::File;
 //use std::io::prelude::*;
 
+#[derive(Debug)]
+struct Race {
+    name: String,
+    strength_modifier: i8,
+    dexterity_modifier: i8,
+    constitution_modifier: i8,
+    comprehension_modifier: i8,
+    willpower_modifier: i8,
+    presence_modifier: i8,
+}
+
+#[derive(Debug)]
+struct Character {
+    race: Race,
+    name: String,
+    strength: u8,
+    dexterity: u8,
+    constitution: u8,
+    comprehension: u8,
+    willpower: u8,
+    presence: u8,
+}
+
 fn main() {
     println!("Own System Character Genarator");
 
@@ -24,7 +47,7 @@ fn main() {
         let race_choise: u32 = match race_choise.trim().parse() {
             Ok(num) => num,
             Err(_) => break,
-    };
+        };
 
     if race_choise == 1 {
         let race = human();
@@ -46,7 +69,7 @@ fn main() {
         println!("{}", race);
         //break;
     }
-}
+    }
 }
 
 
@@ -287,7 +310,9 @@ fn extreme_normal_human() -> String {
     let d_stats = derived_attributes(strength, dexterity, constitution, comprehension, willpower, presence);
     base_stats.push_str(&d_stats);
 
-    return base_stats;}
+    base_stats
+}
+
 fn average_divine_body_human() -> String {
     let mut base_stats = String::new();
     base_stats.push_str("\n ");
@@ -343,7 +368,9 @@ fn average_divine_body_human() -> String {
     let d_stats = derived_attributes(strength, dexterity, constitution, comprehension, willpower, presence);
     base_stats.push_str(&d_stats);
 
-    return base_stats;}
+    base_stats    
+}
+
 fn superior_divine_body_human() -> String {
     let mut base_stats = String::new();
     base_stats.push_str("\n ");
